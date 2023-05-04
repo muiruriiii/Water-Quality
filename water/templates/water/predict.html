@@ -1,0 +1,46 @@
+{% extends 'water/base.html' %}
+{% load static %}
+{% block content %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info alert-dismissible fade show text-center" role="alert">{{message}}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+<form action="{% url 'predict' %}" method="POST">
+    {% csrf_token %}
+    <label for="ph">pH:</label><br>
+    <input type="text" id="pH" name="pH"><br>
+
+    <label for="Hardness">Hardness:</label><br>
+    <input type="text" id="hardness" name="hardness"><br>
+
+    <label for="Solids">Solids:</label><br>
+    <input type="text" id="solids" name="solids"><br>
+
+    <label for="Chloramines">Chloramines:</label><br>
+    <input type="text" id="chloramines" name="chloramines"><br>
+
+      <label for="Sulfate">Sulfate:</label><br>
+    <input type="text" id="sulfate" name="sulfate"><br>
+
+    <label for="Conductivity">Conductivity:</label><br>
+    <input type="text" id="conductivity" name="conductivity"><br>
+
+      <label for="Organic Carbon">Organic Carbon:</label><br>
+    <input type="text" id="organic_carbon" name="organic_carbon"><br>
+
+      <label for="Trihalomethanes">Trihalomethanes:</label><br>
+    <input type="text" id="trihalomethanes" name="trihalomethanes"><br>
+
+    <label for="Turbidity">Turbidity:</label><br>
+    <input type="text" id="turbidity" name="turbidity"><br>
+    <br>
+    <input type="submit" value="Submit">
+
+</form>
+{% endblock content %}
+
